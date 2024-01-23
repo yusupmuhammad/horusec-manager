@@ -1,0 +1,11 @@
+{
+  "horusecCliFilesOrPathsToIgnore": [
+    "*tmp*",
+    "**/.vscode/**",
+    "**/*_test.go",
+    "**/deployments/**",
+    "**/docs/**",
+    "**/internal/entities/analysis_v1/analysis_v1_mock.json"
+  ],
+  "horusecCliFalsePositiveHashes": []
+}

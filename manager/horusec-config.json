@@ -1,0 +1,13 @@
+{
+  "horusecCliFilesOrPathsToIgnore": [
+    "*tmp*",
+    "**/.cypress/**",
+    "**/cypress/**",
+    "**/.vscode/**",
+    "**/.idea/**",
+    "**/deployments/**",
+    "**/build/**",
+    "**/docs/**"
+  ],
+  "horusecCliFalsePositiveHashes": []
+}

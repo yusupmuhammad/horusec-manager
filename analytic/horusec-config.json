@@ -1,0 +1,11 @@
+{
+  "horusecCliFilesOrPathsToIgnore": [
+    "*tmp*",
+    "**/.vscode/**",
+    "**/*_test.go",
+    "**/deployments/**",
+    "**/docs/**",
+    "**/cmd/migrate/**"
+  ],
+  "horusecCliFalsePositiveHashes": []
+}

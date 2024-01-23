@@ -1,0 +1,10 @@
+FROM golang
+
+ADD . /analytic
+
+WORKDIR /analytic
+
+RUN go get -d ./...
+RUN go install github.com/cosmtrek/air@v1.27.3
+
+CMD ["/go/bin/air", "-c", "deployments/air/config.toml"]

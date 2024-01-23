@@ -1,0 +1,6 @@
+{
+  "horusecCliFilesOrPathsToIgnore": [
+    "**/source/**"
+  ],
+  "horusecCliRiskAcceptHashes": []
+}
