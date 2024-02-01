@@ -38,30 +38,30 @@ declare global {
 const SERVICE_VULNERABILITY =
   window.HORUSEC_ENDPOINT_VULNERABILITY ||
   window.REACT_APP_HORUSEC_ENDPOINT_VULNERABILITY ||
-  'http://35.219.16.84:8001';
+  'https://infosec-manager-api-vn.kredivo.com';
 
 const SERVICE_CORE =
   window.HORUSEC_ENDPOINT_CORE ||
   window.REACT_APP_HORUSEC_ENDPOINT_CORE ||
-  'http://35.219.16.84:8003';
+  'https://infosec-manager-api-vn.kredivo.com';
 
 const SERVICE_WEBHOOK =
   window.HORUSEC_ENDPOINT_WEBHOOK ||
   window.REACT_APP_HORUSEC_ENDPOINT_WEBHOOK ||
-  'http://35.219.16.84:8004';
+  'https://infosec-manager-api-vn.kredivo.com';
 
 const SERVICE_ANALYTIC =
   window.HORUSEC_ENDPOINT_ANALYTIC ||
   window.REACT_APP_HORUSEC_ENDPOINT_ANALYTIC ||
-  'http://35.219.16.84:8005';
+  'https://infosec-manager-api-vn.kredivo.com';
 
 const SERVICE_AUTH =
   window.HORUSEC_ENDPOINT_AUTH ||
   window.REACT_APP_HORUSEC_ENDPOINT_AUTH ||
-  'http://35.219.16.84:8006';
+  'https://infosec-manager-api-vn.kredivo.com';
 
 const isLocalHost = (endpoint: string) =>
-  endpoint.includes('localhost') || endpoint.includes('35.219.16.84');
+  endpoint.includes('localhost') || endpoint.includes('10.254.64.251');
 
 if (
   isLocalHost(SERVICE_AUTH) ||

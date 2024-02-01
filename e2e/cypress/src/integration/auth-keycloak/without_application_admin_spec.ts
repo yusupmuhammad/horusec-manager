@@ -41,7 +41,7 @@ describe("Horusec tests", () => {
 });
 
 function LoginWithDefaultAccountAndCheckIfNotExistWorkspace(): void {
-    cy.visit("http://127.0.0.1:8043/auth");
+    cy.visit("http://infosec-manager-vn.kredivo.com:8043/auth");
     cy.wait(10000);
     cy.get("button").contains("Sign in with Keycloak").click();
     cy.wait(2000);
@@ -548,5 +548,5 @@ function LoginAndUpdateDeleteAccount(): void {
     cy.wait(1500);
 
     // Check if login is not authorized
-    cy.url().should("eq", "http://127.0.0.1:8043/auth");
+    cy.url().should("eq", "http://infosec-manager-vn.kredivo.com:8043/auth");
 }

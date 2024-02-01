@@ -128,8 +128,8 @@ services:
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DISABLE_EMAILS: "true"
-      HORUSEC_AUTH_URL: "35.219.16.84:8006"
-      HORUSEC_MANAGER_URL: "35.219.16.84:8043"
+      HORUSEC_AUTH_URL: "127.0.0.1:8006"
+      HORUSEC_MANAGER_URL: "127.0.0.1:8043"
   horusec-core:
     image: horuszup/horusec-core:v2.18.0
     ports:
@@ -150,7 +150,7 @@ services:
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@horusec_postgresql:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
       HORUSEC_GRPC_AUTH_URL: "horusec-auth:8007"
-      HORUSEC_MANAGER_URL: "35.219.16.84:8043"
+      HORUSEC_MANAGER_URL: "127.0.0.1:8043"
   horusec-analytic:
     image: horuszup/horusec-analytic:v2.18.0
     ports:
@@ -232,18 +232,18 @@ services:
     restart: always
     container_name: horusec-manager
     environment:
-      HORUSEC_ENDPOINT_API: "http://35.219.16.84:8000	"
-      HORUSEC_ENDPOINT_ANALYTIC: "http://35.219.16.84:8005"
-      HORUSEC_ENDPOINT_CORE: "http://35.219.16.84:8003"
-      HORUSEC_ENDPOINT_WEBHOOK: "http://35.219.16.84:8003"
-      HORUSEC_ENDPOINT_AUTH: "http://35.219.16.84:8006"
-      HORUSEC_ENDPOINT_VULNERABILITY: "http://35.219.16.84:8001"
-      REACT_APP_HORUSEC_ENDPOINT_API: "http://35.219.16.84:8000	"
-      REACT_APP_HORUSEC_ENDPOINT_ANALYTIC: "http://35.219.16.84:8005"
-      REACT_APP_HORUSEC_ENDPOINT_CORE: "http://35.219.16.84:8003"
-      REACT_APP_HORUSEC_ENDPOINT_WEBHOOK: "http://35.219.16.84:8003"
-      REACT_APP_HORUSEC_ENDPOINT_AUTH: "http://35.219.16.84:8006"
-      REACT_APP_HORUSEC_ENDPOINT_VULNERABILITY: "http://35.219.16.84:8001"
+      HORUSEC_ENDPOINT_API: "https://10.254.64.251:8000	"
+      HORUSEC_ENDPOINT_ANALYTIC: "http://10.254.64.251:8005"
+      HORUSEC_ENDPOINT_CORE: "http://10.254.64.251:8003"
+      HORUSEC_ENDPOINT_WEBHOOK: "http://10.254.64.251:8003"
+      HORUSEC_ENDPOINT_AUTH: "http://10.254.64.251:8006"
+      HORUSEC_ENDPOINT_VULNERABILITY: "http://10.254.64.251:8001"
+      REACT_APP_HORUSEC_ENDPOINT_API: "http://10.254.64.251:8000	"
+      REACT_APP_HORUSEC_ENDPOINT_ANALYTIC: "http://10.254.64.251:8005"
+      REACT_APP_HORUSEC_ENDPOINT_CORE: "http://10.254.64.251:8003"
+      REACT_APP_HORUSEC_ENDPOINT_WEBHOOK: "http://10.254.64.251:8003"
+      REACT_APP_HORUSEC_ENDPOINT_AUTH: "http://10.254.64.251:8006"
+      REACT_APP_HORUSEC_ENDPOINT_VULNERABILITY: "http://10.254.64.251:8001"
       REACT_APP_KEYCLOAK_BASE_PATH: ""
       REACT_APP_KEYCLOAK_CLIENT_ID: ""
       REACT_APP_KEYCLOAK_REALM: ""

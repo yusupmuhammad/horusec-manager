@@ -36,7 +36,7 @@ services:
       - "8080"
     environment:
       DB_VENDOR: "postgres"
-      DB_ADDR: "127.0.0.1"
+      DB_ADDR: ""
       DB_PORT: "5433"
       DB_USER: "root" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       DB_PASSWORD: "root" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -74,7 +74,7 @@ services:
     network_mode: "host"
     environment:
       HORUSEC_PORT: "8002"
-      HORUSEC_BROKER_HOST: "127.0.0.1"
+      HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -100,7 +100,7 @@ services:
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
       HORUSEC_JWT_SECRET_KEY: "horusec-secret" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_KEYCLOAK_BASE_PATH: "http://127.0.0.1:8080"
+      HORUSEC_KEYCLOAK_BASE_PATH: "http://infosec-manager-vn.kredivo.com:8080"
       HORUSEC_KEYCLOAK_CLIENT_ID: "horusec-private" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_KEYCLOAK_CLIENT_SECRET: "f00907ba-87b7-441b-aae7-bd4c74de1938" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_KEYCLOAK_REALM: "master" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -119,12 +119,12 @@ services:
       HORUSEC_ENABLE_DEFAULT_USER: "true"
       HORUSEC_DEFAULT_USER_DATA: "{\"username\": \"dev\", \"email\":\"dev@example.com\", \"password\":\"Devpass0*\"}" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_AUTH_TYPE: "keycloak"
-      HORUSEC_BROKER_HOST: "127.0.0.1"
+      HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DISABLE_EMAILS: "true"
-      HORUSEC_AUTH_URL: "127.0.0.1:8006"
+      HORUSEC_AUTH_URL: "infosec-manager-vn.kredivo.com:8006"
       HORUSEC_MANAGER_URL: "127.0.0.1:8043"
   horusec-core:
     build:
@@ -140,13 +140,13 @@ services:
     environment:
       HORUSEC_PORT: "8003"
       HORUSEC_DISABLED_BROKER: "true"
-      HORUSEC_BROKER_HOST: "127.0.0.1"
+      HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
-      HORUSEC_GRPC_AUTH_URL: "127.0.0.1:8007"
+      HORUSEC_GRPC_AUTH_URL: "infosec-manager-vn.kredivo.com:8007"
       HORUSEC_MANAGER_URL: "127.0.0.1:8043"
   horusec-analytic:
     build:
@@ -163,8 +163,8 @@ services:
       HORUSEC_PORT: "8005"
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_analytic_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
-      HORUSEC_GRPC_AUTH_URL: "127.0.0.1:8007"
-      HORUSEC_BROKER_HOST: "127.0.0.1"
+      HORUSEC_GRPC_AUTH_URL: "infosec-manager-vn.kredivo.com:8007"
+      HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -183,7 +183,7 @@ services:
       HORUSEC_PORT: "8000"
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
-      HORUSEC_GRPC_AUTH_URL: "127.0.0.1:8007"
+      HORUSEC_GRPC_AUTH_URL: "infosec-manager-vn.kredivo.com:8007"
       HORUSEC_BROKER_HOST: "127.0.0.1"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -202,8 +202,8 @@ services:
       HORUSEC_PORT: "8001"
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "false"
-      HORUSEC_GRPC_AUTH_URL: "127.0.0.1:8007"
-      HORUSEC_BROKER_HOST: "127.0.0.1"
+      HORUSEC_GRPC_AUTH_URL: "infosec-manager-vn.kredivo.com:8007"
+      HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -221,8 +221,8 @@ services:
      HORUSEC_PORT: "8004"
      HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@127.0.0.1:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
      HORUSEC_DATABASE_SQL_LOG_MODE: "false"
-     HORUSEC_GRPC_AUTH_URL: "127.0.0.1:8007"
-     HORUSEC_BROKER_HOST: "127.0.0.1"
+     HORUSEC_GRPC_AUTH_URL: "infosec-manager-vn.kredivo.com:8007"
+     HORUSEC_BROKER_HOST: "infosec-manager-vn.kredivo.com"
      HORUSEC_BROKER_PORT: "5672"
      HORUSEC_BROKER_USERNAME: "guest"
      HORUSEC_BROKER_PASSWORD: "guest"
@@ -249,6 +249,6 @@ services:
       REACT_APP_HORUSEC_ENDPOINT_VULNERABILITY: ${REACT_APP_HORUSEC_ENDPOINT_VULNERABILITY}
       REACT_APP_MICROFRONTEND_PUBLIC_PATH: ${REACT_APP_MICROFRONTEND_PUBLIC_PATH}
       REACT_APP_HORUSEC_MANAGER_THEME: ${REACT_APP_HORUSEC_MANAGER_THEME}
-      REACT_APP_KEYCLOAK_BASE_PATH: "http:\\/\\/127.0.0.1:8080\\/auth"
+      REACT_APP_KEYCLOAK_BASE_PATH: "http:\\/\\/10.254.64.251:8080\\/auth"
       REACT_APP_KEYCLOAK_CLIENT_ID: "horusec-public"
       REACT_APP_KEYCLOAK_REALM: "master"

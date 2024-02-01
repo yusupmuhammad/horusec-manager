@@ -84,3 +84,14 @@ restart:
 rebuild-dev:
 	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) down
 	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) up -d --build
+
+remove:
+	docker stop $$(docker ps -aq)
+	docker rm $$(docker ps -aq)
+	docker rmi $$(docker images -q)
+
+network-check:
+	docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Networks}}"
+
+logs:
+	docker logs $$(docker ps -aq)
