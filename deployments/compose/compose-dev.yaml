@@ -61,15 +61,18 @@ services:
       POSTGRES_USER: root # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       POSTGRES_PASSWORD: root # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       POSTGRES_DB: horusec_db
-    # volumes:
-    #   - /var/lib/postgres/db/data:/var/lib/postgresql/data
+    volumes:
+      - /var/lib/postgres2/db/data:/var/lib/postgresql/data
     tty: true
     logging:
       driver: json-file
       options:
         max-size: 10m
     healthcheck:
-      test: pg_isready -U $$POSTGRES_USER
+      test: "pg_isready -h db"
+      interval: 3s
+      timeout: 5s
+      retries: 5
   horusec-messages:
     build:
       context: ../../messages
@@ -86,7 +89,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_SMTP_ADDRESS: "sandbox.smtp.mailtrap.io"
       HORUSEC_SMTP_USERNAME: "6805246e6f1654" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_SMTP_PASSWORD: "0b4aeeda9d0e28" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
@@ -133,7 +136,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DISABLE_EMAILS: "true"
       HORUSEC_AUTH_URL: "10.254.64.251:8006"
       HORUSEC_MANAGER_URL: "10.254.64.251:8043"
@@ -156,7 +159,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_URI: "postgresql://root:root@10.254.64.251:5432/horusec_db?sslmode=disable" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
       HORUSEC_DATABASE_SQL_LOG_MODE: "true"
       HORUSEC_GRPC_AUTH_URL: "localhost:8050"
@@ -182,7 +185,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
   horusec-api:
     build:
 
@@ -205,7 +208,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
   horusec-vulnerability:
     build:
       context: ../../vulnerability
@@ -227,7 +230,7 @@ services:
       HORUSEC_BROKER_HOST: "10.254.64.251"
       HORUSEC_BROKER_PORT: "5672"
       HORUSEC_BROKER_USERNAME: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
-      HORUSEC_BROKER_PASSWORD: "guest" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
+      HORUSEC_BROKER_PASSWORD: "infosec_2024" # Sensitive information we not recommended usage in production environment, change for usage strong data for connection with this service
   horusec-webhook:
    build:
      context: ../../webhook
@@ -248,7 +251,7 @@ services:
      HORUSEC_BROKER_HOST: "10.254.64.251"
      HORUSEC_BROKER_PORT: "5672"
      HORUSEC_BROKER_USERNAME: "guest"
-     HORUSEC_BROKER_PASSWORD: "guest"
+     HORUSEC_BROKER_PASSWORD: "infosec_2024"
   horusec-manager:
     build:
       context: ../../manager
@@ -260,13 +263,13 @@ services:
     volumes:
       - ../:/usr/app
     environment:
-      HORUSEC_ENDPOINT_API: "http:\/\/10.254.64.251:8000	"
+      HORUSEC_ENDPOINT_API: "http:\/\/10.254.64.251:8000"
       HORUSEC_ENDPOINT_ANALYTIC: "http:\/\/10.254.64.251:8005"
       HORUSEC_ENDPOINT_CORE: "http:\/\/10.254.64.251:8003"
       HORUSEC_ENDPOINT_WEBHOOK: "http:\/\/10.254.64.251:8003"
       HORUSEC_ENDPOINT_AUTH: "http:\/\/10.254.64.251:8006"
       HORUSEC_ENDPOINT_VULNERABILITY: "http:\/\/10.254.64.251:8001"
-      REACT_APP_HORUSEC_ENDPOINT_API: "http:\/\/10.254.64.251:8000	"
+      REACT_APP_HORUSEC_ENDPOINT_API: "http:\/\/10.254.64.251:8000"
       REACT_APP_HORUSEC_ENDPOINT_ANALYTIC: "http:\/\/10.254.64.251:8005"
       REACT_APP_HORUSEC_ENDPOINT_CORE: "http:\/\/10.254.64.251:8003"
       REACT_APP_HORUSEC_ENDPOINT_WEBHOOK: "http:\/\/10.254.64.251:8003"

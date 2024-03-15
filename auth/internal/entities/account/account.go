@@ -99,7 +99,7 @@ func (a *Account) ToGetAccountDataResponse(permissions []string) *proto.GetAccou
 
 func (a *Account) SetIsConfirmedTrue() *Account {
 	a.Update()
-	a.IsConfirmed = true
+	a.IsConfirmed = false
 
 	return a
 }

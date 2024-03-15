@@ -20,6 +20,9 @@ compose-dev-down:
 compose-dev-up:
 	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) up -d --build
 
+compose-dev-up-wo-build:
+	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) up -d
+
 compose-dev:
 	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) down
 	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) up -d --build
@@ -95,3 +98,10 @@ network-check:
 
 logs:
 	docker logs $$(docker ps -aq)
+
+rebuild-dev-fe:
+	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) down 373c45fd9138
+	$(DOCKER_COMPOSE) -f deployments/compose/$(COMPOSE_DEV_FILE_NAME) up -d --build 373c45fd9138
+	
+
+
